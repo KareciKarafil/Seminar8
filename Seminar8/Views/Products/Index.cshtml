@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Seminar8.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Index</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-3">
+            <h3>@item.Name</h3>
+
+            @item.Price<br>
+
+            <img width="250" height="250" src="~/images/@item.Image" /><br>
+            <a class="btn btn-primary" asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">Detaje</a>
+
+        </div>
+    }
+</div>
